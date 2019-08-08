@@ -1,0 +1,344 @@
+<view>
+  <view class="d1">
+    <view class="d11">
+      <image src="../img/1.png" />
+    </view>
+    <view class="d12 show-button" bindtap="showButton">
+      <image id="ing1" src="../img/brand@2x.png"/>
+      <text class="te1">粥品香坊（大运村）</text>
+      <text class="te2">蜂鸟专送/38分钟送达</text>
+      <image id="ing2" src="../img/decrease_1@3x.png" />
+      <text class="te3">在线支付满28元减5元，满50减10</text>
+      <text class="te4">
+        <text class="te5">5个</text>
+        <text class="te6">></text>
+      </text>
+    </view>
+  </view>
+  <view class="d2">
+    <image src="../img/bulletin@2x.png" />
+    <text class="te1">粥品香坊其烹饪粥料的秘方源于中国千年古法，再融合现代制作工艺</text>
+    <text class="te2">></text>
+  </view>
+  <view class="d3">
+    <text class='menu {{menuTapCurrent=="0"?"borders":""}}' data-current="0" catchtap="menuTap">
+      商品
+    </text>
+    <text class='menu {{menuTapCurrent=="1"?"borders":""}}' data-current="1" catchtap="menuTap">
+      评价
+    </text>
+    <text class='menu {{menuTapCurrent=="2"?"borders":""}}' data-current="2" catchtap="menuTap">
+      商家
+    </text>
+  </view>
+  <view class="tab" hidden="{{menuTapCurrent!='0'}}">
+    <view class="d4">
+      <view class="d41">
+        <text class="te1" id="{{abc==item.name?'zz':''}}" wx:for="{{goods}}" wx:key="{{index}}" bindtap="btn" data-name="{{item.name}}">
+          {{item.name}}
+        </text>
+      </view>
+      <view class="d42" wx:for="{{goods}}" wx:key="{{index}}" wx:if="{{foodsname==item.name}}">
+        <text class="te1">{{item.name}}</text>
+        <view class="d44" wx:for="{{item.foods}}" wx:key="{{key}}">
+          <image id="img3" src="{{item.image}}"></image>
+          <text class="te2">
+            <text class="te3">
+              <text class="te1">{{item.name}}</text>
+              <text class="te3">月售{{item.rating}}份 好评率100%</text>
+              <text class="te4">
+                <text class="te5">￥{{item.price}}</text>
+                <text class="te6"></text>
+                <text class="te4">
+                  <text class="jia" bindtap="jia" data-name="{{item.name}}">+</text>
+                  <text class="shu {{zt?'hide':'show'}}">1</text>
+                  <text class="jian {{zt?'hide':'show'}}" bindtap="jian">-</text>
+                </text>
+              </text>
+            </text>
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tab" hidden="{{menuTapCurrent!='1'}}">
+    <!-- 评分 -->
+    <view class="evaluate">
+      <view class="left">
+        <view>3.9</view>
+        <view>综合评分</view>
+        <view>高于周边商家62.9%</view>
+      </view>
+      <view class="right">
+        <view>
+          <text>服务态度</text>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_off@3x.png'></image>
+          <text>3.9</text>
+        </view>
+        <view>
+          <text>服务态度</text>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_on@3x.png'></image>
+          <image src='../img/star24_off@3x.png'></image>
+          <text>4.0</text>
+        </view>
+        <view class="time">
+          <text>送达时间</text>
+          <text>44分钟</text>
+        </view>
+      </view>
+    </view>
+    <!-- btn -->
+    <view class="btnn">
+      <view class="btn">
+        <button size='mini'>全部</button>
+        <button size='mini'>满意</button>
+        <button size='mini'>不满意</button>
+      </view>
+      <view class="ping">
+        <icon type="success" size="20" color='{{hui}}'></icon>
+        <text>只看有内容的评价</text>
+      </view>
+    </view>
+    <!-- 用户评价内容 -->
+    <view class="content">
+      <!-- 一块 -->
+      <view class="itme">
+        <!-- 头 -->
+        <view class="head">
+          <image src="../img/4.png"></image>
+          <view class="name">
+            <view>哈哈哈***呵呵</view>
+            <view class="xing">
+              <image src='../img/star24_on@2x.png'></image>
+              <image src='../img/star24_on@2x.png'></image>
+              <image src='../img/star24_on@2x.png'></image>
+              <image src='../img/star24_on@2x.png'></image>
+              <image src='../img/star24_on@2x.png'></image>
+              <text>80分钟送达</text>
+            </view>
+          </view>
+          <view class="time">2019-02-1 20:30</view>
+        </view>
+        <!-- 头 -->
+        <!-- 内容 -->
+        <view class="con">真的超级难吃真的超级难吃真的超级难吃真的超级难吃真的超级难吃</view>
+        <!-- 内容 -->
+        <!-- 品类 -->
+        <view class="zan">
+          <text>香菇</text>
+          <text>香菇</text>
+          <text>香菇</text>
+        </view>
+        <!-- 品类 -->
+      </view>
+      <!-- 一块 -->
+    </view>
+  </view>
+  <view class="tab" hidden="{{menuTapCurrent!='2'}}">
+    <view class="content">
+      <view class="box">
+        <view class="box1">
+          <view class="zhoufang-left">
+            <view>粥品香坊 （ 大运存 ）</view>
+            <view class="wximg">
+              <image src="../img/star36_on@2x.png"></image>
+              <image src="../img/star36_on@2x.png" class="imgage"></image>
+              <image src="../img/star36_on@2x.png" class="imgage"></image>
+              <image src="../img/star36_on@2x.png" class="imgage"></image>
+              <image src="../img/star36_off@2x.png" class="imgage"></image>
+              <view class="font">(661)</view>
+              <view class="font1">月售690单</view>
+            </view>
+          </view>
+          <view class="zhoufang-right">
+            <view>💗</view>
+            <view>已收藏</view>
+          </view>
+        </view>
+      </view>
+      <view class="qujia">
+        <view class="qujia1">
+          <view class="border-right">
+            <view>起送价</view>
+            <view class="file">
+              <view class="font48">20</view>
+              <view class="botton">元</view>
+            </view>
+          </view>
+        </view>
+        <view class="qujia1">
+          <view class="border-right1">
+            <view>商家配送</view>
+            <view class="file">
+              <view class="font48">4</view>
+              <view class="botton">元</view>
+            </view>
+          </view>
+        </view>
+        <view class="qujia1">
+          <view>平均配送时间</view>
+          <view class="file">
+            <view class="font48">39</view>
+            <view class="botton">分钟</view>
+          </view>
+        </view>
+      </view>
+      <view class='gurn'></view>
+      <!-- 公告栏 -->
+      <view class="gonggao">
+        <view class="gonggaonav">公告与活动</view>
+        <view class="navfont">
+          粥品香坊其烹饪粥料的秘方源于中国千年古法，在融合现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深的消费者青睐，发展至今成为粥类引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。
+        </view>
+        <!-- 在线支付 -->
+        <view class="zhifu">
+          <view class="zhifu1">
+            <view class="liht">
+              <image src="../img/decrease_3@3x.png"></image>
+              <view class="zhifufont">在线支付满28减5 ，满50减10</view>
+            </view>
+          </view>
+          <view class="zhifu12">
+            <view class="liht">
+              <image src="../img/discount_4@3x.png"></image>
+              <view class="zhifufont">单人精彩赛</view>
+            </view>
+          </view>
+          <view class="zhifu12">
+            <view class="liht">
+              <image src="../img/discount_4@3x.png"></image>
+              <view class="zhifufont">清肺雪梨汤8折抢购</view>
+            </view>
+          </view>
+          <view class="zhifu12">
+            <view class="liht">
+              <image src="../img/special_3@3x.png"></image>
+              <view class="zhifufont">特价饮品八折抢购</view>
+            </view>
+          </view>
+          <view class="zhifu12">
+            <view class="liht">
+              <image src="../img/special_3@3x.png"></image>
+              <view class="zhifufont">单人特色套餐</view>
+            </view>
+          </view>
+          <view class="zhifu12">
+            <view class="liht">
+              <image src="../img/invoice_3@3x.png"></image>
+              <view class="zhifufont">该商家支持开发票，请在下单时填写好发票抬头</view>
+            </view>
+          </view>
+          <view class="zhifu123">
+            <view class="liht">
+              <image src="../img/guarantee_3@3x.png"></image>
+              <view class="zhifufont">已加入“外卖保”计划，食品安全保障</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='gurn'></view>
+      <!-- 商家 -->
+      <view class="sangjia">
+        <view class="snagjia1">商家实景</view>
+        <view class="hien">
+          <image class="shijiaimg" src="../img/3.png"></image>
+          <image src="../img/3.png"></image>
+          <image src="../img/3.png"></image>
+        </view>
+      </view>
+      <view class='gurn'></view>
+      <!-- 商家信息 -->
+      <view class="xinxi">
+        <view class="xinxibox">
+          <view>商家信息</view>
+        </view>
+        <view class="xinxibox1">
+          <view>商品解放后合，请在下单时填写好发票抬头</view>
+        </view>
+        <view class="xinxibox1">
+          <view>品类：其它菜系、包子粥店</view>
+        </view>
+        <view class="xinxibox1">
+          <view>地址：北京市昌平区回龙观西大街观置业大厦底商B座102单元1340</view>
+        </view>
+        <view class="xinxibox1">
+          <view>营业时间：10：00-20：30</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="d5">
+    <text class="d51">购物车</text>
+    <text class="d52">￥0</text>
+    <text class="d53">另需配送费$4元</text>
+    <text class="d54">￥20起送</text>
+  </view>
+  <!-- 粥品香坊（大运村） -->
+  <view class="boxx {{showView?'hide':'show'}}">
+    <view class="herder">
+      <view class="herderfont">粥品香坊 （大运村）</view>
+      <view class="herderimg">
+        <text src="../img/star36_on@3x.png" class="imgxingxing"></text>
+        <text src="../img/star36_on@3x.png"></text>
+        <text src="../img/star36_on@3x.png"></text>
+        <text src="../img/star36_on@3x.png"></text>
+        <text src="../img/star48_off@3x.png"></text>
+      </view>
+    </view>
+    <view class="nav">
+      <view class="xian"></view>
+      <view class="youhui">优惠信息</view>
+      <view class="xian"></view>
+    </view>
+    <view class="zhifuu">
+      <view class="zhifubox">
+        <view class="contentt">
+          <image class="img1" src="../img/decrease_1@3x.png"></image>
+        </view>
+        <view class="zhifufontt">在线支付满28减5，满50减10</view>
+      </view>
+      <view class="zhifubox">
+        <view class="contentt">
+          <image class="img1" src="../img/discount_1@3x.png"></image>
+        </view>
+        <view class="zhifufontt">单人精彩赛</view>
+      </view>
+      <view class="zhifubox">
+        <view class="contentt">
+          <image class="img1" src="../img/discount_1@3x.png"></image>
+        </view>
+        <view class="zhifufontt">清肺雪梨汤8折抢购</view>
+      </view>
+      <view class="zhifubox">
+        <view class="contentt">
+          <image class="img1" src="../img/special_1@3x.png"></image>
+        </view>
+        <view class="zhifufontt">特价饮品八折抢购</view>
+      </view>
+      <view class="zhifubox">
+        <view class="contentt">
+          <image class="img1" src="../img/special_1@3x.png"></image>
+        </view>
+        <view class="zhifufontt">单人特色套餐</view>
+      </view>
+    </view>
+    <view class="nav1">
+      <view class="xian"></view>
+      <view class="youhui">商家公告</view>
+      <view class="xian"></view>
+    </view>
+    <view class="contentfont">
+      <view class="zhiti">
+        粥品香坊其烹饪粥料的秘方源于中国千年古法，在融合现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深的消费者青睐，发展至今成为粥类引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。
+      </view>
+    </view>
+    <view class="footerr" bindtap="showTop">x</view>
+  </view>
+</view>
