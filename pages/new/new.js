@@ -10,6 +10,19 @@ Page({
     foodsname: "热销榜",
     abc: "热销榜",
     zt: true,
+    txq:true,
+  },
+  xq:function(){
+    var that=this;
+    that.setData({
+      txq:(!that.data.txq)
+    })
+  },
+  back:function(){
+    var that=this;
+    that.setData({
+      txq:(!that.data.txq)
+    })
   },
   showButton: function () {
     var that = this;
@@ -28,11 +41,10 @@ Page({
     that.setData({
       zt: (!that.data.zt)
     })
-
   },
   jian: function () {
     that.setData({
-      zt: false
+      zt: (!that.data.zt)
     })
   },
   btn: function (e) {
@@ -42,8 +54,7 @@ Page({
     })
   },
   menuTap: function (e) {
-    var current = e.currentTarget.dataset.current;//获取到绑定的数据
-    //改变menuTapCurrent的值为当前选中的menu所绑定的数据
+    var current = e.currentTarget.dataset.current;
     this.setData({
       menuTapCurrent: current
     });
